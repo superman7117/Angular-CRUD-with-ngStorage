@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body ng-app='MyApp'>
+  <div class='container'>
+  <div ng-controller="mainCtrl">
+    <div>
+      Quantity: <input type"number" min='0' ng-model='qty'>
+    </div>
+    <div>
+      Costs: <input type"number" min='0' ng-model='cost'>
+    </div>
+    <div>
+      <b>Total:</b> {{qty * cost | currency}}
+    </div>
+    <div>
+      <button ng-click='cost = cost * 2; qty = qty *2;'>Double Costs</button>
+    </div>
+  <hr>
+  <input ng-model='newName' type="text" placeholder="name">
+  <input ng-model='newParent' type="text" placeholder="parent">
+  <button ng-click='addName()'class='button'></button>
+  <hr>
+  <table class='table'>
+    <tbody ng-repeat='(key, value) in names track by $index'>
+      <th >
+        {{key}}
+      </th>
+      <tr ng-repeat='name in names track by $index'>
+        <td >{{name.theNames}}</td>
+        <td >{{name.theParents}}</td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+
+
+
+</div>
+</div>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/yoyoyo.js"></script>
+</body>
+</html>

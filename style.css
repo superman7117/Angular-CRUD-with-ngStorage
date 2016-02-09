@@ -1,0 +1,44 @@
+body{
+  background: oldlace;
+  color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vw;
+}
+.popup{
+  display: none;
+}
+.thisthing{
+  position: fixed;
+  top: 4vw;
+  width: 90vw;
+  left: 4vw;
+  height: 80vh;
+  background-color: lightblue;
+  border-radius: 4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+.page{
+  font-size: 10vw;
+}
+span{
+  font-size: 3vw;
+}
+td, th {
+  border: 1px solid black;
+  padding: 1vw;
+}
+button {
+  width: 15vw;
+  height: 6vw;
+  border-radius: 40%;
+  border-color: black;
+  color: blue;
+  font-size: 2vw;
+
+}

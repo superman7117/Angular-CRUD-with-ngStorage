@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body ng-app='MyApp'>
+  <div class='container'>
+    <div ng-controller="mainCtrl">
+      <div>
+        <input ng-model="filterText" type="text">Search
+        <br>
+        <button ng-click='initNewContact()'>Add New Contact</button>
+      </div>
+      <div class="popup baboom">
+        <div class='page'>CREATE CONTACT</div>
+        <div >
+          <input ng-model="newContact.Name" placeholder="Enter Name" type="text" required>
+          <input ng-model="newContact.Email" placeholder="Enter Email" type="text" required>
+          <input ng-model="newContact.Phone" placeholder="Enter Phone" type="text" required>
+          <input ng-model="newContact.Address" placeholder="Enter Address" type="text" required>
+          <button ng-click='addNew()' type='submit'>Submit New Contact</button>
+        </div>
+        <span>Please Fill Out The Whole Form</span>
+      </div>
+      <div class="popup editCt">
+        <div class='page'>EDIT CONTACT</div>
+        <div >
+          <input ng-model="updateContact.Name" placeholder="Enter Name" type="text" required>
+          <input ng-model="updateContact.Email" placeholder="Enter Email" type="text" required>
+          <input ng-model="updateContact.Phone" placeholder="Enter Phone" type="text" required>
+          <input ng-model="updateContact.Address" placeholder="Enter Address" type="text" required>
+          <button ng-click='editContact()'type='submit'>Submit Edits</button>
+        </div>
+        <span>Please Fill Out The Whole Form</span>
+
+      </div>
+      <hr>
+      <table class='table'>
+        <tbody >
+          <tr>
+            <th ng-repeat='(key, value) in names[0]'>
+              {{key}}
+            </th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          <tr ng-repeat='obj in names | filter:filterText track by $index'>
+            <td ng-repeat="(key,value) in obj">{{value}}</td>
+            <td> <button ng-click="editName()">Edit</button></td>
+            <td> <button ng-click="deleteName()">Delete</button></td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+
+
+
+    </div>
+  </div>
+
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+  <script src="/main.js"></script>
+</body>
+</html>
